@@ -1,6 +1,7 @@
 package com.qtechweb.eduservice.controller;
 
 
+import com.qtechweb.commonutils.result.Result;
 import com.qtechweb.eduservice.entity.EduTeacher;
 import com.qtechweb.eduservice.service.EduTeacherService;
 import com.qtechweb.eduservice.service.impl.EduTeacherServiceImpl;
@@ -31,16 +32,15 @@ public class EduTeacherController {
     //查询讲师表所有数据  http://localhost:8001/eduservice/edu-teacher
     @ApiOperation("查询讲师表所有数据")
     @GetMapping(path = "/findAll")
-    public List<EduTeacher> findAll() {
-        List<EduTeacher> list = eduTeacherService.list();
-        return list;
+    public Result<List<EduTeacher>> findAll() {
+        return Result.success(eduTeacherService.list());
     }
 
     //通过id删除讲师
     @ApiOperation("通过id删除讲师")
     @DeleteMapping(path = "/delete/{id}")
-    public boolean deleteById(@ApiParam(name = "id", value = "讲师id", required = true) @PathVariable("id") String id) {
-        return eduTeacherService.removeById(id);
+    public Result deleteById(@ApiParam(name = "id", value = "讲师id", required = true) @PathVariable("id") String id) {
+        return eduTeacherService.removeById(id) ? Result.success() : Result.fail();
     }
 }
 

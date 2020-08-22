@@ -17,10 +17,10 @@
 
     <dependencies>
 
-       <!-- <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
-        </dependency>-->
+        <!-- <dependency>
+             <groupId>org.springframework.cloud</groupId>
+             <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+         </dependency>-->
         <!--服务熔断-->
         <!--<dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -41,6 +41,12 @@
         <dependency>
             <groupId>com.qtechweb</groupId>
             <artifactId>service_base</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <!--引入自定义的响应工具类-->
+        <dependency>
+            <groupId>com.qtechweb</groupId>
+            <artifactId>common_utils</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
