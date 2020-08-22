@@ -10,6 +10,17 @@ spring:
     url: jdbc:mysql://39.107.244.230:3306/guli?autoReconnect=true&autoReconnectForPools=true&serverTimezone=UTC&failOverReadOnly=false&useUnicode=true&characterEncoding=utf8
     username: root
     password: 1234
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+      logic-delete-field: isDeleted
+swagger:
+  groupName: edu_teacher接口
+  backage: com.qtechweb.eduservice.controller

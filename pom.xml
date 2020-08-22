@@ -4,6 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <modules>
         <module>service</module>
+        <module>common</module>
     </modules>
 
     <parent>
@@ -28,7 +29,7 @@
         <guli.version>0.0.1-SNAPSHOT</guli.version>
         <mybatis-plus.version>3.3.2</mybatis-plus.version>
         <velocity.version>2.2</velocity.version>
-        <swagger.version>2.10.5</swagger.version>
+        <swagger.version>2.9.2</swagger.version>
         <aliyun.oss.version>3.10.2</aliyun.oss.version>
         <jodatime.version>2.10.6</jodatime.version>
         <poi.version>4.1.2</poi.version>

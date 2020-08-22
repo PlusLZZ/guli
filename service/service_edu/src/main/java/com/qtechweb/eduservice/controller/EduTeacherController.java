@@ -4,10 +4,10 @@ package com.qtechweb.eduservice.controller;
 import com.qtechweb.eduservice.entity.EduTeacher;
 import com.qtechweb.eduservice.service.EduTeacherService;
 import com.qtechweb.eduservice.service.impl.EduTeacherServiceImpl;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.web.bind.annotation.RestController;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -20,6 +20,7 @@ import java.util.List;
  * @author lzz
  * @since 2020-08-22
  */
+@Api(value = "讲师接口")
 @RestController
 @RequestMapping("/eduservice/edu-teacher")
 public class EduTeacherController {
@@ -27,11 +28,19 @@ public class EduTeacherController {
     @Resource(type = EduTeacherServiceImpl.class)
     private EduTeacherService eduTeacherService;
 
-    //查询讲师表所有数据
+    //查询讲师表所有数据  http://localhost:8001/eduservice/edu-teacher
+    @ApiOperation("查询讲师表所有数据")
     @GetMapping(path = "/findAll")
-    public List<EduTeacher> findAll(){
+    public List<EduTeacher> findAll() {
         List<EduTeacher> list = eduTeacherService.list();
         return list;
+    }
+
+    //通过id删除讲师
+    @ApiOperation("通过id删除讲师")
+    @DeleteMapping(path = "/delete/{id}")
+    public boolean deleteById(@ApiParam(name = "id", value = "讲师id", required = true) @PathVariable("id") String id) {
+        return eduTeacherService.removeById(id);
     }
 }
 
