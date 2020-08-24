@@ -16,6 +16,7 @@ spring:
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    cache-enabled: true
   global-config:
     db-config:
       logic-delete-value: 1
