@@ -11,6 +11,7 @@ import com.qtechweb.eduservice.service.impl.EduTeacherServiceImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -24,6 +25,7 @@ import java.util.List;
  * @author lzz
  * @since 2020-08-22
  */
+@Slf4j
 @Api(value = "讲师接口")
 @RestController
 @RequestMapping("/eduservice/edu-teacher")
