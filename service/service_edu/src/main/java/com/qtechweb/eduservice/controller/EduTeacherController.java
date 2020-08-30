@@ -27,12 +27,14 @@ import java.util.List;
  */
 @Slf4j
 @Api(value = "讲师接口")
+@CrossOrigin
 @RestController
 @RequestMapping("/eduservice/edu-teacher")
 public class EduTeacherController {
 
     @Resource(type = EduTeacherServiceImpl.class)
     private EduTeacherService eduTeacherService;
+
 
     @ApiOperation("查询讲师表所有数据")
     @GetMapping(path = "/findAll")
@@ -85,6 +87,12 @@ public class EduTeacherController {
     @PostMapping(path = "/update")
     public Result update(@RequestBody EduTeacher teacher) {
         return eduTeacherService.updateById(teacher) ? Result.success() : Result.fail();
+    }
+
+    @ApiOperation("讲师姓名校验")
+    @GetMapping(path = "/check/name/{name}")
+    public Result checkoutForName(@PathVariable(value = "name", required = false) String name) {
+        return Result.success(eduTeacherService.checkOutTeacherByName(name));
     }
 }
 

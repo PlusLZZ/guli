@@ -15,6 +15,10 @@ import com.qtechweb.eduservice.entity.vo.TeacherQuery;
  */
 public interface EduTeacherService extends IService<EduTeacher> {
 
+    //讲师条件查询分页
     PageUtils pageCondition(Long current, Long size, TeacherQuery query);
+
+    //查询数据库是否有这个讲师名称
+    Boolean checkOutTeacherByName(String name);
 
 }

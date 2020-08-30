@@ -4,7 +4,6 @@ package com.qtechweb.servicebase.config;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
@@ -17,7 +16,7 @@ import java.util.ArrayList;
 
 @Configuration
 @EnableSwagger2
-@PropertySource("classpath:application.yml")
+//@PropertySource("classpath:application.yml")
 public class SwaggerConfig {
 
     //从配置文件获取配置信息

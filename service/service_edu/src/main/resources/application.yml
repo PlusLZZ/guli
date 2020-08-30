@@ -10,6 +10,12 @@ spring:
     url: jdbc:mysql://39.107.244.230:3306/guli?autoReconnect=true&autoReconnectForPools=true&serverTimezone=UTC&failOverReadOnly=false&useUnicode=true&characterEncoding=utf8
     username: root
     password: 1234
+    hikari:
+      max-lifetime: 120000 #连接的存活时间
+      connection-test-query: SELECT 1
+      minimum-idle: 2  #最小空闲连接数
+      maximum-pool-size: 10 #最大连接数
+      idle-timeout: 30000
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8

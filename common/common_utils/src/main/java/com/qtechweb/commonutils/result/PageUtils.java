@@ -27,7 +27,7 @@ public class PageUtils<T> {
     private T data;
 
     public static PageUtils page(Page page) {
-        Double pageCount = Math.ceil(Double.valueOf(page.getTotal() / page.getSize()));
+        Double pageCount = Math.ceil(page.getTotal() / (double) page.getSize());
         return new PageUtils().setTotal(page.getTotal()).setSize(page.getSize()).setCurrent(page.getCurrent())
                 .setPageCount(pageCount.longValue()).setHasPrevious(page.hasPrevious()).setHasNext(page.hasNext()).setData(page.getRecords());
     }

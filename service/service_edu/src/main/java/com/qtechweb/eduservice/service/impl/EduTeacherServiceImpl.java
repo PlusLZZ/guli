@@ -8,8 +8,11 @@ import com.qtechweb.eduservice.entity.EduTeacher;
 import com.qtechweb.eduservice.entity.vo.TeacherQuery;
 import com.qtechweb.eduservice.mapper.EduTeacherMapper;
 import com.qtechweb.eduservice.service.EduTeacherService;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
 
 /**
  * <p>
@@ -20,8 +23,11 @@ import org.springframework.stereotype.Service;
  * @since 2020-08-22
  */
 @Service
+@Slf4j
 public class EduTeacherServiceImpl extends ServiceImpl<EduTeacherMapper, EduTeacher> implements EduTeacherService {
 
+    @Resource
+    EduTeacherMapper mapper;
 
     @Override
     public PageUtils pageCondition(Long current, Long size, TeacherQuery query) {
@@ -36,6 +42,17 @@ public class EduTeacherServiceImpl extends ServiceImpl<EduTeacherMapper, EduTeac
             wrapper.ge("gmt_create", query.getBegin());
         if (StringUtils.isNotBlank(query.getEnd()))
             wrapper.le("gmt_create", query.getEnd());
+        wrapper.orderByDesc("gmt_create");
         return PageUtils.page(page(page, wrapper));
     }
+
+    @Override
+    public Boolean checkOutTeacherByName(String name) {
+        if (StringUtils.isEmpty(name) || mapper.checkOutTeacherByName(name).equals(0)) {
+            return true;
+        }
+        return false;
+    }
+
+
 }
