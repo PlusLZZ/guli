@@ -25,4 +25,5 @@ public class DefaultException extends Exception {
         this.code = 100;
         this.message = "异常信息未传入";
     }
+
 }

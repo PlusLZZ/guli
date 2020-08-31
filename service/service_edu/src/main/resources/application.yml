@@ -29,5 +29,5 @@ mybatis-plus:
       logic-not-delete-value: 0
       logic-delete-field: isDeleted
 swagger:
-  groupName: edu_teacher接口
+  groupName: edu接口
   backage: com.qtechweb.eduservice.controller

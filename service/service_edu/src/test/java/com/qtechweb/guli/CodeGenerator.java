@@ -66,7 +66,7 @@ public class CodeGenerator {
         PackageConfig pc = new PackageConfig();
         pc.setModuleName(scanner("eduservice"));
         pc.setParent("com.qtechweb");
-        pc.setController("contrller");
+        pc.setController("controller");
         pc.setEntity("entity");
         pc.setService("service");
         pc.setMapper("mapper");
