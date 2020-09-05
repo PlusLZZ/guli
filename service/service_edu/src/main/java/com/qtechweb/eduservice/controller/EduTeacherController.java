@@ -94,5 +94,11 @@ public class EduTeacherController {
     public Result checkoutForName(@PathVariable(value = "name", required = false) String name) {
         return Result.success(eduTeacherService.checkOutTeacherByName(name));
     }
+
+    @ApiOperation("下拉框讲师列表显示")
+    @GetMapping(path = "/findAll/comBox")
+    public Result combox() {
+        return Result.success(eduTeacherService.queryTeacherComBox());
+    }
 }
 

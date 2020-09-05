@@ -6,4 +6,8 @@
     <select id="checkOutTeacherByName" resultType="java.lang.Integer">
         select count(1) from edu_teacher where name=#{name} limit 1
     </select>
+
+    <select id="queryTeacherComBox" resultType="com.qtechweb.eduservice.entity.teacher.TeacherComBox">
+        select id,name from edu_teacher where is_deleted=0 order by sort desc
+    </select>
 </mapper>

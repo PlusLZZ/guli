@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.qtechweb.commonutils.result.PageUtils;
 import com.qtechweb.eduservice.entity.EduTeacher;
+import com.qtechweb.eduservice.entity.teacher.TeacherComBox;
 import com.qtechweb.eduservice.entity.vo.TeacherQuery;
 import com.qtechweb.eduservice.mapper.EduTeacherMapper;
 import com.qtechweb.eduservice.service.EduTeacherService;
@@ -13,6 +14,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * <p>
@@ -52,6 +54,11 @@ public class EduTeacherServiceImpl extends ServiceImpl<EduTeacherMapper, EduTeac
             return true;
         }
         return false;
+    }
+
+    @Override
+    public List<TeacherComBox> queryTeacherComBox() {
+        return baseMapper.queryTeacherComBox();
     }
 
 

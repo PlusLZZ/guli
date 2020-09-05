@@ -1,7 +1,6 @@
 package com.qtechweb.commonutils.exception;
 
 import com.qtechweb.commonutils.exce.IDefaultEnum;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -9,11 +8,15 @@ import lombok.experimental.Accessors;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @Accessors(chain = true)
-@AllArgsConstructor
-public class DefaultException extends Exception {
+public class DefaultException extends RuntimeException {
 
     private Integer code;
     private String message;
+
+    public DefaultException(Integer code, String message) {
+        this.code = code;
+        this.message = message;
+    }
 
     //传入自定义的枚举,可以自定义异常信息
     public DefaultException(IDefaultEnum defaultEnum) {
