@@ -25,7 +25,7 @@ import javax.annotation.Resource;
 @Api(value = "课程视频接口")
 @CrossOrigin
 @RestController
-@RequestMapping("/eduservice/edu-video")
+@RequestMapping("/edu/video")
 public class EduVideoController {
 
     @Resource(type = EduVideoServiceImpl.class)

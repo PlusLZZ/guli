@@ -29,7 +29,7 @@ import javax.annotation.Resource;
 @Api(value = "课程基本信息接口")
 @CrossOrigin
 @RestController
-@RequestMapping("/eduservice/edu-course")
+@RequestMapping("/edu/course")
 public class EduCourseController {
 
     @Resource(type = EduCourseServiceImpl.class)

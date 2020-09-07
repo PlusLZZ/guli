@@ -29,7 +29,7 @@ import java.util.List;
 @Api(value = "讲师接口")
 @CrossOrigin
 @RestController
-@RequestMapping("/eduservice/edu-teacher")
+@RequestMapping("/edu/teacher")
 public class EduTeacherController {
 
     @Resource(type = EduTeacherServiceImpl.class)

@@ -20,7 +20,7 @@ import java.util.HashMap;
 @Slf4j
 @Api(value = "登录接口")
 @RestController
-@RequestMapping("/eduservice/user")
+@RequestMapping("/edu/user")
 public class UserLoginController {
 
     @ApiOperation("登录接口")

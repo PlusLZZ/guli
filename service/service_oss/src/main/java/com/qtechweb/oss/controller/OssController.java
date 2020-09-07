@@ -27,7 +27,7 @@ import java.io.IOException;
 @Api(value = "讲师相关文件上传接口")
 @CrossOrigin
 @RestController
-@RequestMapping("/oss/edu-teacher")
+@RequestMapping("/oss")
 public class OssController {
 
     @Resource(type = OssServiceImpl.class)

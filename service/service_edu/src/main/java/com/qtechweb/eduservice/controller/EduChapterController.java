@@ -24,7 +24,7 @@ import javax.annotation.Resource;
 @Api(value = "课程章节接口")
 @CrossOrigin
 @RestController
-@RequestMapping("/eduservice/edu-chapter")
+@RequestMapping("/edu/chapter")
 public class EduChapterController {
 
     @Resource(type = EduChapterServiceImpl.class)

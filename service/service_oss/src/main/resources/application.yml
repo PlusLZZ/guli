@@ -2,7 +2,7 @@ server:
   port: 8002
 spring:
   application:
-    name: service_oss
+    name: oss
   profiles:
     active: dev
   servlet:

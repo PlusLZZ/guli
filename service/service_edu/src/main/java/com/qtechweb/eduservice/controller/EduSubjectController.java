@@ -26,7 +26,7 @@ import java.util.List;
 @Api(value = "课程类别接口")
 @CrossOrigin
 @RestController
-@RequestMapping("/eduservice/edu-subject")
+@RequestMapping("/edu/subject")
 public class EduSubjectController {
 
     @Resource(type = EduSubjectServiceImpl.class)
