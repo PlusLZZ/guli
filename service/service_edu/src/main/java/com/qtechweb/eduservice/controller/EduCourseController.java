@@ -76,5 +76,11 @@ public class EduCourseController {
     public Result list(@RequestBody(required = false) CourseQuery query, @PathVariable("size") Long size, @PathVariable("current") Long current) {
         return Result.success(courseService.pageCondition(current, size, query));
     }
+
+    @ApiOperation("通过id删除课程")
+    @DeleteMapping(path = "/delete/{id}")
+    public Result delete(@PathVariable("id") String id) {
+        return Result.success(courseService.removeById(id));
+    }
 }
 

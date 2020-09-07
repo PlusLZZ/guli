@@ -1,0 +1,20 @@
+server:
+  port: 8003
+spring:
+  application:
+    name: service_vod
+  profiles:
+    active: dev
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 1024MB
+      max-request-size: 4069MB
+aliyun:
+  vod:
+    file:
+      keyid: LTAI4FzqurskcBUFRiVfHKfD
+      keysecret: oXj8FXiBpXPHIcbA1IO2e80Fu1EnWZ
+swagger:
+  groupName: Vod视频点播接口
+  backage: com.qtechweb.vod.controller

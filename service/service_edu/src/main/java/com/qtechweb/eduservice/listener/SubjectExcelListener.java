@@ -7,6 +7,7 @@ import com.qtechweb.eduservice.entity.EduSubject;
 import com.qtechweb.eduservice.entity.excel.SubjectData;
 import com.qtechweb.eduservice.service.EduSubjectService;
 import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
 
 
 /*
@@ -14,6 +15,7 @@ import lombok.SneakyThrows;
  * 判断需要插入的,进行批处理操作
  * 待优化.............
  * */
+@Slf4j
 public class SubjectExcelListener extends AnalysisEventListener<SubjectData> {
 
     /*此监听器无法进行注入,可以使用构造器注入的方式进行注入*/
@@ -36,6 +38,7 @@ public class SubjectExcelListener extends AnalysisEventListener<SubjectData> {
             throw new DefaultException(20001, "文件读取异常,请修改格式!");
 
         }
+        log.info(data.toString());
         save(data);
     }
 
