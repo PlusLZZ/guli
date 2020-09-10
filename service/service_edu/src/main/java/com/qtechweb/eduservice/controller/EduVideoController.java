@@ -40,8 +40,8 @@ public class EduVideoController {
     //TODO 后面需要完善删除视频
     @ApiOperation("删除小节")
     @DeleteMapping("/delete/{id}")
-    public Result add(@PathVariable("id") String id) {
-        return Result.success(eduVideoService.removeById(id));
+    public Result delete(@PathVariable("id") String id) {
+        return eduVideoService.deleteVideoById(id) ? Result.success() : Result.fail();
     }
 
     @ApiOperation("查询小节")

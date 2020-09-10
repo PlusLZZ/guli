@@ -35,3 +35,14 @@ mybatis-plus:
 swagger:
   groupName: edu接口
   backage: com.qtechweb.eduservice.controller
+
+feign:
+  hystrix:
+    enabled: true  #开启熔断机子
+hystrix:
+  command:
+    default: #也可以针对多个服务
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 6000 # 设置hystrix的超时时间,默认为1000ms

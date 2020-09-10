@@ -39,6 +39,7 @@ public class VodController {
     @ApiOperation("通过视频ID删除视频")
     @DeleteMapping("/delete/{id}")
     public Result deleteVideoById(@PathVariable("id") String id) {
+        log.info("被删除的视频ID为: " + id);
         return vodService.deleteVideoById(id) ? Result.success() : Result.fail(20001, "删除视频失败");
     }
 

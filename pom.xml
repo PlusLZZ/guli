@@ -47,7 +47,6 @@
         <aliyun-java-sdk-core.version>4.5.1</aliyun-java-sdk-core.version>
         <aliyun-java-sdk-vod.version>2.15.2</aliyun-java-sdk-vod.version>
         <spring.cloud.version>Hoxton.SR3</spring.cloud.version>
-        <feign.version>2.2.2.RELEASE</feign.version>
     </properties>
 
 
@@ -55,16 +54,11 @@
         <dependencies>
             <!--Spring Cloud-->
             <dependency>
-                <groupId>org.springframe.cloud</groupId>
+                <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
                 <version>${spring.cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter-openfeign</artifactId>
-                <version>${feign.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>

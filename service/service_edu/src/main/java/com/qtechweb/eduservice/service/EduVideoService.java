@@ -13,4 +13,7 @@ import com.qtechweb.eduservice.entity.EduVideo;
  */
 public interface EduVideoService extends IService<EduVideo> {
 
+    /*删除小节时删除视频*/
+    Boolean deleteVideoById(String id);
+
 }

@@ -9,9 +9,11 @@ import com.aliyuncs.vod.model.v20170321.DeleteVideoRequest;
 import com.aliyuncs.vod.model.v20170321.DeleteVideoResponse;
 import com.qtechweb.vod.service.VodService;
 import com.qtechweb.vod.utils.ConstantVodSet;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+@Slf4j
 @Service
 public class VodServiceImpl implements VodService {
 
@@ -49,4 +51,5 @@ public class VodServiceImpl implements VodService {
             return false;
         }
     }
+
 }
