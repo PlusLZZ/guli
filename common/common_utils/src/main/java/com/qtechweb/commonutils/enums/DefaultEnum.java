@@ -15,7 +15,12 @@ public enum DefaultEnum implements IDefaultEnum {
     FORBIDDEN(403, "权限不足"),
     NOT_FOUND(404, "无资源"),
     FAIL(50000, "失败"),
-    TIMEOUT(504, "超时");
+    TIMEOUT(504, "超时"),
+    OBJECT_IS_NULL(50000, "对象为空"),
+    STRING_IS_NULL(50000, "字符串为空"),
+    LIST_IS_NULL(50000, "集合为空"),
+    MAP_IS_NULL(50000, "map为空"),
+    PROD_ERROR(50000, "系统异常,请联系管理员解决");
 
 
     private Integer code;

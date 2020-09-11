@@ -96,6 +96,6 @@ public class Result<T> implements Serializable {
     /*传入错误类返回响应体*/
     public static Result fail(Exception e) {
         return e instanceof DefaultException ? new Result().setIsSuccess(false).setCodeMessage(((DefaultException) e).getCode(), e.getMessage())
-                : new Result().setIsSuccess(false).setCodeMessage(500, e.getMessage());
+                : new Result().setIsSuccess(false).setCodeMessage(50000, e.getMessage());
     }
 }

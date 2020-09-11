@@ -1,6 +1,6 @@
 package com.qtechweb.guli;
 
-import com.qtechweb.eduservice.mapper.EduTeacherMapper;
+import com.qtechweb.edu.mapper.EduTeacherMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 

@@ -11,22 +11,21 @@ import lombok.experimental.Accessors;
 public class DefaultException extends RuntimeException {
 
     private Integer code;
-    private String message;
 
     public DefaultException(Integer code, String message) {
+        super(message);
         this.code = code;
-        this.message = message;
     }
 
     //传入自定义的枚举,可以自定义异常信息
     public DefaultException(IDefaultEnum defaultEnum) {
+        super(defaultEnum.getMessage());
         this.code = defaultEnum.getCode();
-        this.message = defaultEnum.getMessage();
     }
 
     public DefaultException() {
-        this.code = 100;
-        this.message = "异常信息未传入";
+        super("未知异常");
+        this.code = 50000;
     }
 
 }

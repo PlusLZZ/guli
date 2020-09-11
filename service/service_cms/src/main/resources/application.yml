@@ -1,8 +1,8 @@
 server:
-  port: 8001
+  port: 8004
 spring:
   application:
-    name: edu
+    name: cms
   profiles:
     active: dev
   datasource:
@@ -37,9 +37,8 @@ mybatis-plus:
       logic-not-delete-value: 0
       logic-delete-field: isDeleted
 swagger:
-  groupName: edu接口
-  backage: com.qtechweb.edu.controller
-
+  groupName: cms接口
+  backage: com.qtechweb.cms.controller
 feign:
   hystrix:
     enabled: true  #开启熔断机子
