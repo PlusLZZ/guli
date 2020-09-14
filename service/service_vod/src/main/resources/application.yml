@@ -16,8 +16,6 @@ spring:
         server-addr: 127.0.0.1:8848
   mvc:
     throw-exception-if-no-handler-found: true  #捕获404异常
-  resources:
-    add-mappings: false  #不做资源映射
 aliyun:
   vod:
     file:
