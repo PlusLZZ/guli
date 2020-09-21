@@ -16,6 +16,18 @@ spring:
         server-addr: 127.0.0.1:8848
   mvc:
     throw-exception-if-no-handler-found: true  #捕获404异常
+  redis:
+    host: 39.107.244.230
+    port: 6379
+    database: 0
+    timeout: 10000
+    password: 1234
+    lettuce:
+      pool:
+        max-wait: -1ms #最大阻塞等待时间
+        max-active: 20  #最大连接数
+        max-idle: 10   #最大空闲连接
+        min-idle: 0   #最小空闲连接
 aliyun:
   vod:
     file:

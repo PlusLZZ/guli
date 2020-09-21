@@ -3,6 +3,8 @@ package com.qtechweb.edu.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.qtechweb.commonutils.result.PageUtils;
 import com.qtechweb.edu.entity.EduCourse;
+import com.qtechweb.edu.entity.frontvo.CourseFrontVo;
+import com.qtechweb.edu.entity.frontvo.CourseWebVo;
 import com.qtechweb.edu.entity.vo.CourseInfoVo;
 import com.qtechweb.edu.entity.vo.CoursePublishVo;
 import com.qtechweb.edu.entity.vo.CourseQuery;
@@ -31,4 +33,10 @@ public interface EduCourseService extends IService<EduCourse> {
 
     //课程条件查询分页
     PageUtils pageCondition(Long current, Long size, CourseQuery query);
+
+    /* 前台条件查询分页 */
+    PageUtils getCourseFrontList(Long size, Long current, CourseFrontVo vo);
+
+    /* 前台课程详情查询 */
+    CourseWebVo getCourseFrontInfo(String courseId);
 }

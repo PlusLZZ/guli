@@ -7,9 +7,9 @@ spring:
     active: dev
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://39.107.244.230:3306/guli?autoReconnect=true&autoReconnectForPools=true&serverTimezone=UTC&failOverReadOnly=false&useUnicode=true&characterEncoding=utf8
-    username: root
-    password: 1234
+    url: jdbc:mysql://rm-bp1pb1k4296013ii6qo.mysql.rds.aliyuncs.com:3306/guli?autoReconnect=true&autoReconnectForPools=true&serverTimezone=UTC&failOverReadOnly=false&useUnicode=true&characterEncoding=utf8
+    username: guli
+    password: Guli1234
     hikari:
       max-lifetime: 120000 #连接的存活时间
       connection-test-query: SELECT 1
@@ -29,7 +29,7 @@ spring:
     host: 39.107.244.230
     port: 6379
     database: 0
-    timeout: 100000
+    timeout: 10000
     password: 1234
     lettuce:
       pool:

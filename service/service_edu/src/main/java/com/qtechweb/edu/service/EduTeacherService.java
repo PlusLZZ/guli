@@ -7,6 +7,7 @@ import com.qtechweb.edu.entity.teacher.TeacherComBox;
 import com.qtechweb.edu.entity.vo.TeacherQuery;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -26,5 +27,8 @@ public interface EduTeacherService extends IService<EduTeacher> {
 
     /*讲师列表下拉框*/
     List<TeacherComBox> queryTeacherComBox();
+
+    /* 讲师详情信息 */
+    Map<String, Object> getTeacherInfo(Long id);
 
 }

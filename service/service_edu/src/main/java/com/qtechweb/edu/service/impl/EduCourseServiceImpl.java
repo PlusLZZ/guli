@@ -7,6 +7,8 @@ import com.qtechweb.commonutils.exception.AssertUtils;
 import com.qtechweb.commonutils.result.PageUtils;
 import com.qtechweb.edu.entity.EduCourse;
 import com.qtechweb.edu.entity.EduCourseDescription;
+import com.qtechweb.edu.entity.frontvo.CourseFrontVo;
+import com.qtechweb.edu.entity.frontvo.CourseWebVo;
 import com.qtechweb.edu.entity.vo.CourseInfoVo;
 import com.qtechweb.edu.entity.vo.CoursePublishVo;
 import com.qtechweb.edu.entity.vo.CourseQuery;
@@ -15,6 +17,7 @@ import com.qtechweb.edu.service.EduCourseDescriptionService;
 import com.qtechweb.edu.service.EduCourseService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -99,5 +102,57 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
             wrapper.le("gmt_create", query.getEnd());
         wrapper.orderByDesc("gmt_create");
         return PageUtils.page(page(page, wrapper));
+    }
+
+    @Override
+    @Cacheable(cacheNames = {"frontCoursePage"}, sync = true, key = "#size+':'+#current+#vo.hashCode()")
+    /* 前台课程分页 */
+    public PageUtils getCourseFrontList(Long size, Long current, CourseFrontVo vo) {
+        Page<EduCourse> page = new Page<>();
+        page.setSize(size).setCurrent(current);
+        QueryWrapper<EduCourse> wrapper = new QueryWrapper<>();
+        wrapper.eq("status", "Normal");
+        if (vo != null) {
+            if (!StringUtils.isEmpty(vo.getSubjectParentId())) {
+                wrapper.eq("subject_parent_id", vo.getSubjectParentId());
+            }
+            if (!StringUtils.isEmpty(vo.getSubjectId())) {
+                wrapper.eq("subject_id", vo.getSubjectId());
+            }
+            /* 排序规则:
+             * 1:升序
+             * 2:降序
+             * */
+            if (!StringUtils.isEmpty(vo.getBuyCountSort())) {
+                if (vo.getBuyCountSort().equals("1")) {
+                    wrapper.orderByAsc("buy_count");
+                } else {
+                    wrapper.orderByDesc("buy_count");
+                }
+            }
+            if (!StringUtils.isEmpty(vo.getGmtCreateSort())) {
+                if (vo.getGmtCreateSort().equals("1")) {
+                    wrapper.orderByAsc("gmt_create");
+                } else {
+                    wrapper.orderByDesc("gmt_create");
+                }
+            }
+            if (!StringUtils.isEmpty(vo.getPriceSort())) {
+                if (vo.getPriceSort().equals("1")) {
+                    wrapper.orderByAsc("price");
+                } else {
+                    wrapper.orderByDesc("price");
+                }
+            }
+        }
+        Page<EduCourse> coursePage = page(page, wrapper);
+        return PageUtils.page(coursePage, 7);
+    }
+
+    @Cacheable(cacheNames = {"frontCourseInfo"}, sync = true, key = "#courseId")
+    @Override
+    public CourseWebVo getCourseFrontInfo(String courseId) {
+        CourseWebVo frontInfo = baseMapper.getCourseFrontInfo(courseId);
+        return frontInfo;
     }
 }

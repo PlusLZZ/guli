@@ -9,4 +9,7 @@ public interface VodService {
 
     /*通过ID删除阿里云视频*/
     Boolean deleteVideoById(String id);
+
+    /* 获得视频播放凭证 */
+    String getAuth(String id);
 }

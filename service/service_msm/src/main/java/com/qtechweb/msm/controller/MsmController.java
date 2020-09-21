@@ -32,8 +32,8 @@ public class MsmController {
     @Resource(type = MsmServiceImpl.class)
     private MsmService msmService;
 
-    @ApiOperation("发送短信")
-    @GetMapping(path = "/send/{phone}")
+    @ApiOperation("发送注册验证码短信")
+    @GetMapping(path = "/register/send/{phone}")
     public Result sendMessage(@PathVariable("phone") String phone) {
         Map<String, Object> map = new HashMap<>();
         map.put("code", RandomUtil.getSixBitRandom());

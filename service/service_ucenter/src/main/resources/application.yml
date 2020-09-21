@@ -1,8 +1,8 @@
 server:
-  port: 8004
+  port: 8006
 spring:
   application:
-    name: cms
+    name: ucenter
   profiles:
     active: dev
   datasource:
@@ -47,8 +47,8 @@ mybatis-plus:
       logic-not-delete-value: 0
       logic-delete-field: isDeleted
 swagger:
-  groupName: cms接口
-  backage: com.qtechweb.cms.controller
+  groupName: ucenter接口
+  backage: com.qtechweb.ucenter.controller
 feign:
   hystrix:
     enabled: true  #开启熔断机子
@@ -59,3 +59,12 @@ hystrix:
         isolation:
           thread:
             timeoutInMilliseconds: 6000 # 设置hystrix的超时时间,默认为1000ms
+open:
+  wx:
+    app_id: wxed9954c01bb89b47
+    app_secret: a7482517235173ddb4083788de60b90e
+    redirect_url: http://guli.shop/api/ucenter/wx/callback
+  qq:
+    app_id: xxxxx
+    app_secret: xxxx
+    redirect_url: http://guli.qtechweb.xyz/ucenter/wx/callback

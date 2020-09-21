@@ -4,17 +4,22 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.qtechweb.commonutils.result.PageUtils;
+import com.qtechweb.commonutils.result.ResMap;
+import com.qtechweb.edu.entity.EduCourse;
 import com.qtechweb.edu.entity.EduTeacher;
 import com.qtechweb.edu.entity.teacher.TeacherComBox;
 import com.qtechweb.edu.entity.vo.TeacherQuery;
 import com.qtechweb.edu.mapper.EduTeacherMapper;
+import com.qtechweb.edu.service.EduCourseService;
 import com.qtechweb.edu.service.EduTeacherService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -30,6 +35,9 @@ public class EduTeacherServiceImpl extends ServiceImpl<EduTeacherMapper, EduTeac
 
     @Resource
     EduTeacherMapper mapper;
+
+    @Resource(type = EduCourseServiceImpl.class)
+    private EduCourseService courseService;
 
     @Override
     public PageUtils pageCondition(Long current, Long size, TeacherQuery query) {
@@ -61,5 +69,14 @@ public class EduTeacherServiceImpl extends ServiceImpl<EduTeacherMapper, EduTeac
         return baseMapper.queryTeacherComBox();
     }
 
+    @Cacheable(cacheNames = {"frontTeacherInfo"}, sync = true, key = "#id")
+    @Override
+    public Map<String, Object> getTeacherInfo(Long id) {
+        EduTeacher teacher = getById(id);
+        QueryWrapper<EduCourse> wrapper = new QueryWrapper<>();
+        wrapper.eq("teacher_id", id);
+        List<EduCourse> list = courseService.list(wrapper);
+        return ResMap.create().setKeyValue("teacher", teacher).setKeyValue("courseList", list);
+    }
 
 }

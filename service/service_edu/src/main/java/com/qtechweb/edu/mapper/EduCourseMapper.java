@@ -2,6 +2,7 @@ package com.qtechweb.edu.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.qtechweb.edu.entity.EduCourse;
+import com.qtechweb.edu.entity.frontvo.CourseWebVo;
 import com.qtechweb.edu.entity.vo.CoursePublishVo;
 
 /**
@@ -16,5 +17,8 @@ public interface EduCourseMapper extends BaseMapper<EduCourse> {
 
     /*根据课程id查询课程基本信息*/
     CoursePublishVo getCoursePublishVoById(String id);
+
+    /* 根据课程id查询前台需要的完整课程信息 */
+    CourseWebVo getCourseFrontInfo(String id);
 
 }

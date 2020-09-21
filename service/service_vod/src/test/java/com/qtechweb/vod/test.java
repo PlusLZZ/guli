@@ -16,9 +16,9 @@ import java.util.List;
 public class test {
 
     public static void main(String args[]) throws ClientException {
-        //getPAuth();
-        testUploadVideo("LTAI4FzqurskcBUFRiVfHKfD", "oXj8FXiBpXPHIcbA1IO2e80Fu1EnWZ",
-                "测试视频", "D:\\Program Files\\JiJiDown\\[WPF]JJDown\\Download\\123.mp4");
+        getPAuth();
+       /* testUploadVideo("LTAI4FzqurskcBUFRiVfHKfD", "oXj8FXiBpXPHIcbA1IO2e80Fu1EnWZ",
+                "测试视频", "D:\\Program Files\\JiJiDown\\[WPF]JJDown\\Download\\123.mp4");*/
     }
 
     /*通过id获取播放地址*/
@@ -43,7 +43,7 @@ public class test {
         DefaultAcsClient client = InitObject.initVodClient("LTAI4FzqurskcBUFRiVfHKfD", "oXj8FXiBpXPHIcbA1IO2e80Fu1EnWZ");
         GetVideoPlayAuthRequest request = new GetVideoPlayAuthRequest();
         GetVideoPlayAuthResponse response = new GetVideoPlayAuthResponse();
-        request.setVideoId("285f2e6ebce245c99d84b60490f234b9");
+        request.setVideoId("eb02569a2b0e49afa844a20317aa61d4");
         response = client.getAcsResponse(request);
         //播放凭证
         System.out.print("PlayAuth = " + response.getPlayAuth() + "\n");

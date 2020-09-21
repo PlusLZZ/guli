@@ -10,6 +10,7 @@ import com.qtechweb.edu.listener.SubjectExcelListener;
 import com.qtechweb.edu.mapper.EduSubjectMapper;
 import com.qtechweb.edu.service.EduSubjectService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -58,6 +59,7 @@ public class EduSubjectServiceImpl extends ServiceImpl<EduSubjectMapper, EduSubj
         return getOne(wrapper);
     }
 
+    @Cacheable(cacheNames = {"subject"}, sync = true, key = "#root.methodName")
     @Override
     public List<TreeSubject> getAllForTree() {
         /*List<TreeSubject> treeSubjects=new ArrayList<>();

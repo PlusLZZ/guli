@@ -12,6 +12,7 @@ import com.aliyuncs.profile.DefaultProfile;
 import com.qtechweb.commonutils.exception.AssertUtils;
 import com.qtechweb.commonutils.exception.DefaultException;
 import com.qtechweb.msm.service.MsmService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,7 @@ import org.springframework.stereotype.Service;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
+@Slf4j
 @Service
 public class MsmServiceImpl implements MsmService {
 
@@ -46,6 +48,8 @@ public class MsmServiceImpl implements MsmService {
         CommonResponse response = null;
         try {
             response = client.getCommonResponse(request);
+            log.info(response.getData());
+            log.info(String.valueOf(response.getHttpStatus()));
         } catch (ServerException e) {
             e.printStackTrace();
         } catch (ClientException e) {
@@ -53,6 +57,9 @@ public class MsmServiceImpl implements MsmService {
         }
         if (response.getHttpStatus() != 200) {
             throw new DefaultException(50000, "发送验证码失败");
+        }
+        if (response.getData().indexOf("触发小时级流控") >= 0) {
+            throw new DefaultException(50000, "同一个手机号一个小时最多只能发送五次验证码!!!!");
         }
         redisTemplate.opsForValue().setIfAbsent(phone, params.get("code").toString(), 60, TimeUnit.SECONDS);
         params.put("time", 60);

@@ -18,4 +18,10 @@ public class VideoVo {
 
     @ApiModelProperty(value = "排序字段")
     private Integer sort;
+
+    @ApiModelProperty(value = "云端视频资源")
+    private String videoSourceId;
+
+    @ApiModelProperty(value = "是否可以试听：0收费 1免费")
+    private Integer isFree;
 }

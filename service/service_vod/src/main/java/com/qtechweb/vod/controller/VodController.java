@@ -43,5 +43,11 @@ public class VodController {
         return vodService.deleteVideoById(id) ? Result.success() : Result.fail(20001, "删除视频失败");
     }
 
+    @ApiOperation("通过ID获取视频播放凭证")
+    @GetMapping("/getAuth/{id}")
+    public Result getPath(@PathVariable("id") String id) {
+        return Result.success(vodService.getAuth(id));
+    }
+
 
 }

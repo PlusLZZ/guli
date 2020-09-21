@@ -18,4 +18,7 @@ public interface EduChapterService extends IService<EduChapter> {
 
     /*1.通过id获取章节列表大纲*/
     List<ChapterVo> getChapterLine(String courseId);
+
+    /* 2.通过id获取章节列表包括小节列表的视频id以及收费情况 */
+    List<ChapterVo> getChapterFront(String courseId);
 }
