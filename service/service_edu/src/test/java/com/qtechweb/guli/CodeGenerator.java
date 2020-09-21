@@ -54,17 +54,17 @@ public class CodeGenerator {
 
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://39.107.244.230:3306/guli?autoReconnect=true&autoReconnectForPools=true&serverTimezone=UTC&failOverReadOnly=false&useUnicode=true&characterEncoding=utf8");
+        dsc.setUrl("jdbc:mysql://rm-bp1pb1k4296013ii6qo.mysql.rds.aliyuncs.com:3306/guli?autoReconnect=true&autoReconnectForPools=true&serverTimezone=UTC&failOverReadOnly=false&useUnicode=true&characterEncoding=utf8");
         // dsc.setSchemaName("public");
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
-        dsc.setUsername("root");
-        dsc.setPassword("1234");
+        dsc.setUsername("guli");
+        dsc.setPassword("Guli1234");
         dsc.setDbType(DbType.MYSQL);
         mpg.setDataSource(dsc);
 
         // 包配置
         PackageConfig pc = new PackageConfig();
-        pc.setModuleName(scanner("eduservice"));
+        pc.setModuleName(scanner("edu"));
         pc.setParent("com.qtechweb");
         pc.setController("controller");
         pc.setEntity("entity");
@@ -136,7 +136,7 @@ public class CodeGenerator {
         //strategy.setSuperControllerClass("你自己的父类控制器,没有就不用设置!");
         // 写于父类中的公共字段
         //strategy.setSuperEntityColumns("id");
-        strategy.setInclude(scanner("edu_chapter,edu_course,edu_course_description,edu_video").split(","));
+        strategy.setInclude(scanner("edu_comment").split(","));
         strategy.setControllerMappingHyphenStyle(true);
         strategy.setTablePrefix(pc.getModuleName() + "_");
         mpg.setStrategy(strategy);
