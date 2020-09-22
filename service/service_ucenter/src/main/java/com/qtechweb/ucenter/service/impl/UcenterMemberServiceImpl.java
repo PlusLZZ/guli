@@ -3,6 +3,7 @@ package com.qtechweb.ucenter.service.impl;
 import com.alibaba.nacos.client.config.utils.MD5;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.qtechweb.commonutils.enums.AuthEnum;
 import com.qtechweb.commonutils.exception.AssertUtils;
 import com.qtechweb.commonutils.utils.JwtUtils;
 import com.qtechweb.ucenter.entity.UcenterMember;
@@ -12,6 +13,7 @@ import com.qtechweb.ucenter.service.UcenterMemberService;
 import com.qtechweb.ucenter.utils.ConstantWx;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -103,8 +105,8 @@ public class UcenterMemberServiceImpl extends ServiceImpl<UcenterMemberMapper, U
         log.info(request.getHeader("token"));
         String id = JwtUtils.getMemberIdByJwtToken(request);
         log.info("当前进入的ID为: " + id);
-        AssertUtils.StringNotNull(id, "登录状态已过期,请重新登录");
-        UcenterMember member = getById(id);
+        AssertUtils.StringNotNull(id, AuthEnum.NOT_LOGGED);
+        UcenterMember member = getMemberInfoById(id);
         AssertUtils.ObjectNotNull(member, "系统获取信息异常,请刷新");
         return member;
     }
@@ -179,6 +181,12 @@ public class UcenterMemberServiceImpl extends ServiceImpl<UcenterMemberMapper, U
         /* 生成token */
         String jwtToken = JwtUtils.getJwtToken(member.getId(), member.getNickname());
         return "http://localhost:7700?token=" + jwtToken;
+    }
+
+    @Cacheable(cacheNames = "memberInfo", key = "#memberId", unless = "#result==null")
+    @Override
+    public UcenterMember getMemberInfoById(String memberId) {
+        return getById(memberId);
     }
 
 

@@ -1,6 +1,7 @@
 package com.qtechweb.ucenter.controller;
 
 
+import com.qtechweb.commonutils.enums.AuthEnum;
 import com.qtechweb.commonutils.exception.AssertUtils;
 import com.qtechweb.commonutils.result.ResMap;
 import com.qtechweb.commonutils.result.Result;
@@ -56,6 +57,14 @@ public class UcenterMemberController {
     public Result getMemberInfo(HttpServletRequest request) {
         UcenterMember ucenterMember = ucenterMemberService.getMemberInfoByToken(request);
         return Result.success(ucenterMember);
+    }
+
+    @ApiOperation("通过ID获取用户信息")
+    @GetMapping("/memberInfo/{id}")
+    public Result getMemberById(@PathVariable("id") String memberId) {
+        UcenterMember member = ucenterMemberService.getById(memberId);
+        AssertUtils.ObjectNotNull(member, AuthEnum.NOT_FOUND);
+        return Result.success(member);
     }
 
 }

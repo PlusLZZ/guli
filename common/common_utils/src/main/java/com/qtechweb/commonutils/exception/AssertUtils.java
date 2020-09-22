@@ -24,6 +24,12 @@ public class AssertUtils {
         }
     }
 
+    public static void ObjectNotNull(Object obj, IDefaultEnum defaultEnum) {
+        if (null == obj) {
+            throw new DefaultException(defaultEnum);
+        }
+    }
+
     /*
      * 断言字符串不为空
      * */
@@ -36,6 +42,12 @@ public class AssertUtils {
     public static void StringNotNull(CharSequence s, String message) {
         if (null == s || s.length() == 0) {
             throw new DefaultException(50000, message);
+        }
+    }
+
+    public static void StringNotNull(CharSequence s, IDefaultEnum defaultEnum) {
+        if (null == s || s.length() == 0) {
+            throw new DefaultException(defaultEnum);
         }
     }
 

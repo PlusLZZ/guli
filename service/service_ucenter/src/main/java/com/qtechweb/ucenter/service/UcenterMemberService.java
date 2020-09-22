@@ -31,4 +31,6 @@ public interface UcenterMemberService extends IService<UcenterMember> {
     /* 微信登录回调 */
     String wxCallback(String code, String state);
 
+    /* 通过id获取用户信息 */
+    UcenterMember getMemberInfoById(String memberId);
 }
