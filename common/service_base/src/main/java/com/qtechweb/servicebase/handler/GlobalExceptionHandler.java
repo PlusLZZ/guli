@@ -27,6 +27,8 @@ import org.springframework.web.context.request.async.AsyncRequestTimeoutExceptio
 import org.springframework.web.multipart.support.MissingServletRequestPartException;
 import org.springframework.web.servlet.NoHandlerFoundException;
 
+import java.util.concurrent.CompletionException;
+
 @Slf4j
 @ControllerAdvice
 public class GlobalExceptionHandler {
@@ -70,7 +72,8 @@ public class GlobalExceptionHandler {
             ServletRequestBindingException.class,
             ConversionNotSupportedException.class,
             MissingServletRequestPartException.class,
-            AsyncRequestTimeoutException.class
+            AsyncRequestTimeoutException.class,
+            CompletionException.class
     })
     @ResponseBody
     public Result handleServletException(Exception e) {

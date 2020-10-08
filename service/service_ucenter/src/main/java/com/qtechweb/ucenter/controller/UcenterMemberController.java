@@ -27,7 +27,6 @@ import javax.servlet.http.HttpServletRequest;
  */
 @Slf4j
 @Api(value = "用户中心会员接口")
-@CrossOrigin
 @RestController
 @RequestMapping("/ucenter/member")
 public class UcenterMemberController {
@@ -66,6 +65,7 @@ public class UcenterMemberController {
         AssertUtils.ObjectNotNull(member, AuthEnum.NOT_FOUND);
         return Result.success(member);
     }
+
 
 }
 

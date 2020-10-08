@@ -12,6 +12,10 @@ spring:
       max-request-size: 100MB
   mvc:
     throw-exception-if-no-handler-found: true  #捕获404异常
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
 aliyun:
   oss:
     file:

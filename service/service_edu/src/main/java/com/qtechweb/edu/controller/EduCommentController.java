@@ -29,7 +29,6 @@ import java.util.concurrent.ExecutionException;
  */
 @Slf4j
 @Api(value = "评论接口")
-@CrossOrigin
 @RestController
 @RequestMapping("/edu/comment")
 public class EduCommentController {

@@ -5,6 +5,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -22,6 +23,7 @@ import java.util.Date;
 @EqualsAndHashCode(callSuper = false)
 @TableName("t_order")
 @ApiModel(value = "Order对象", description = "订单")
+@Accessors(chain = true)
 public class Order implements Serializable {
 
     private static final long serialVersionUID = 1L;

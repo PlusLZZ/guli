@@ -28,7 +28,6 @@ import java.util.List;
  */
 @Slf4j
 @Api(value = "讲师接口")
-@CrossOrigin
 @RestController
 @RequestMapping("/edu/teacher")
 public class EduTeacherController {

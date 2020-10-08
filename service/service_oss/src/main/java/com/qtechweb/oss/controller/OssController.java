@@ -6,7 +6,6 @@ import com.qtechweb.oss.service.OssService;
 import com.qtechweb.oss.service.impl.OssServiceImpl;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,7 +24,6 @@ import java.io.IOException;
  */
 @Slf4j
 @Api(value = "讲师相关文件上传接口")
-@CrossOrigin
 @RestController
 @RequestMapping("/oss")
 public class OssController {

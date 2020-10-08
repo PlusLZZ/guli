@@ -8,7 +8,10 @@ import com.qtechweb.msm.service.impl.MsmServiceImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
@@ -24,7 +27,6 @@ import java.util.Map;
  */
 @Slf4j
 @Api(value = "短信接口")
-@CrossOrigin
 @RestController
 @RequestMapping("/msm")
 public class MsmController {

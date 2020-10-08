@@ -6,7 +6,6 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -15,7 +14,6 @@ import javax.servlet.http.HttpSession;
 
 @Slf4j
 @Api(value = "微信登录相关接口")
-@CrossOrigin
 @Controller
 @RequestMapping("/api/ucenter/wx")
 public class WxApiController {

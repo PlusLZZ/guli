@@ -22,7 +22,6 @@ import javax.annotation.Resource;
  */
 @Slf4j
 @Api(value = "视频点播接口")
-@CrossOrigin
 @RestController
 @RequestMapping("/vod")
 public class VodController {

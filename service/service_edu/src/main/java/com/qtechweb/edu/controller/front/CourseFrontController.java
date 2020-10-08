@@ -2,6 +2,7 @@ package com.qtechweb.edu.controller.front;
 
 import com.qtechweb.commonutils.result.ResMap;
 import com.qtechweb.commonutils.result.Result;
+import com.qtechweb.edu.client.OrderClient;
 import com.qtechweb.edu.entity.frontvo.CourseFrontVo;
 import com.qtechweb.edu.service.EduChapterService;
 import com.qtechweb.edu.service.EduCourseService;
@@ -10,9 +11,11 @@ import com.qtechweb.edu.service.impl.EduCourseServiceImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * <p>
@@ -24,7 +27,6 @@ import javax.annotation.Resource;
  */
 @Slf4j
 @Api(value = "前台课程接口")
-@CrossOrigin
 @RestController
 @RequestMapping("/edu/front/course")
 public class CourseFrontController {
@@ -34,6 +36,9 @@ public class CourseFrontController {
 
     @Resource(type = EduChapterServiceImpl.class)
     private EduChapterService chapterService;
+
+    @Autowired
+    private OrderClient orderClient;
 
     @ApiOperation("前台课程分页")
     @PostMapping(path = "/page/{size}/{current}")
@@ -45,10 +50,16 @@ public class CourseFrontController {
 
     @ApiOperation("查询课程详情")
     @GetMapping(path = "/info/{id}")
-    public Result info(@PathVariable("id") String id) {
+    public Result info(@PathVariable("id") String id, HttpServletRequest request) {
+        //String memberId = JwtUtils.getMemberIdByJwtToken(request);
+        //log.info(memberId);
         return Result.success(ResMap.create()
                 .setKeyValue("courseInfo", courseService.getCourseFrontInfo(id))
-                .setKeyValue("chapterInfo", chapterService.getChapterFront(id)));
+                .setKeyValue("chapterInfo", chapterService.getChapterFront(id))
+        );
+        /*
+         * .setKeyValue("isBuy",null==memberId||memberId.isEmpty()?false:orderClient.isBuy(id,memberId).getData())
+         * */
     }
 
 

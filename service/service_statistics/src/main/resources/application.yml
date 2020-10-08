@@ -1,0 +1,77 @@
+server:
+  port: 8008
+spring:
+  application:
+    name: statistics
+  profiles:
+    active: dev
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://rm-bp1pb1k4296013ii6qo.mysql.rds.aliyuncs.com:3306/guli?autoReconnect=true&autoReconnectForPools=true&serverTimezone=UTC&failOverReadOnly=false&useUnicode=true&characterEncoding=utf8
+    username: guli
+    password: Guli1234
+    hikari:
+      max-lifetime: 120000 #连接的存活时间
+      connection-test-query: SELECT 1
+      minimum-idle: 2  #最小空闲连接数
+      maximum-pool-size: 10 #最大连接数
+      idle-timeout: 30000
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  mvc:
+    throw-exception-if-no-handler-found: true  #捕获404异常
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  redis:
+    host: 39.107.244.230
+    port: 6379
+    database: 0
+    timeout: 10000
+    password: 1234
+    lettuce:
+      pool:
+        max-wait: -1ms #最大阻塞等待时间
+        max-active: 20  #最大连接数
+        max-idle: 10   #最大空闲连接
+        min-idle: 0   #最小空闲连接
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    cache-enabled: true
+  global-config:
+    db-config:
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+      logic-delete-field: isDeleted
+swagger:
+  groupName: 统计分析接口
+  backage: com.qtechweb.statistics.controller
+feign:
+  hystrix:
+    enabled: true  #开启熔断机子
+  compression:
+    request:
+      enabled: true
+      mime-types: text/xml,application/xml,application/json #这个是默认值
+      min-request-size: 2048  #这个是默认值
+    response:
+      enabled: true
+hystrix:
+  command:
+    default: #也可以针对多个服务
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 6000 # 设置hystrix的超时时间,默认为1000ms
+ribbon:
+  ConnectTimeout: 1000 #连接超时时间
+  ReadTimeout: 4000 #读取超时时间
+  OkToRetryOnAllOperations: true #对所有操作请求进行重试
+  MaxAutoRetriesNextServer: 2 #切换实例的重试次数
+  MaxAutoRetries: 1 #对当前实例的重试次数
+logging:
+  level:
+    org.sang.HelloService: debug

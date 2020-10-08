@@ -24,7 +24,6 @@ import javax.annotation.Resource;
  */
 @Slf4j
 @Api(value = "课程视频接口")
-@CrossOrigin
 @RestController
 @RequestMapping("/edu/video")
 public class EduVideoController {

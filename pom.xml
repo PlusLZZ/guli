@@ -5,6 +5,7 @@
     <modules>
         <module>service</module>
         <module>common</module>
+        <module>api_geteway</module>
     </modules>
 
     <parent>
@@ -47,6 +48,7 @@
         <aliyun-java-sdk-core.version>4.5.1</aliyun-java-sdk-core.version>
         <aliyun-java-sdk-vod.version>2.15.2</aliyun-java-sdk-vod.version>
         <spring.cloud.version>Hoxton.SR3</spring.cloud.version>
+        <redis-pool.version>2.9.0</redis-pool.version>
     </properties>
 
 
@@ -146,6 +148,12 @@
                 <groupId>commons-io</groupId>
                 <artifactId>commons-io</artifactId>
                 <version>${commons-io.version}</version>
+            </dependency>
+            <!--redis连接池必须-->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-pool2</artifactId>
+                <version>${redis-pool.version}</version>
             </dependency>
             <!--httpclient-->
             <dependency>

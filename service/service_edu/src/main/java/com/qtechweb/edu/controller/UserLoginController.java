@@ -4,7 +4,10 @@ import com.qtechweb.commonutils.result.Result;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
 
@@ -16,7 +19,6 @@ import java.util.HashMap;
  * @author lzz
  * @since 2020-08-25
  */
-@CrossOrigin
 @Slf4j
 @Api(value = "登录接口")
 @RestController

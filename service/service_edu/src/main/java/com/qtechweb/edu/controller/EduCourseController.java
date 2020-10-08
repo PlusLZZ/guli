@@ -28,7 +28,6 @@ import javax.annotation.Resource;
  */
 @Slf4j
 @Api(value = "课程基本信息接口")
-@CrossOrigin
 @RestController
 @RequestMapping("/edu/course")
 public class EduCourseController {

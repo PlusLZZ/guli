@@ -24,7 +24,6 @@ import javax.annotation.Resource;
  */
 @Slf4j
 @Api(value = "首页banner接口")
-@CrossOrigin
 @RestController
 @RequestMapping("/cms/banner")
 public class CrmBannerController {

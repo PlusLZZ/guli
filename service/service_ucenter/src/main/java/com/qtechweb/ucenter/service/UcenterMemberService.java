@@ -33,4 +33,7 @@ public interface UcenterMemberService extends IService<UcenterMember> {
 
     /* 通过id获取用户信息 */
     UcenterMember getMemberInfoById(String memberId);
+
+    /* 查询某天的注册人数 */
+    Integer countRegister(String day);
 }

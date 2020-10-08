@@ -23,7 +23,6 @@ import javax.annotation.Resource;
  */
 @Slf4j
 @Api(value = "课程章节接口")
-@CrossOrigin
 @RestController
 @RequestMapping("/edu/chapter")
 public class EduChapterController {

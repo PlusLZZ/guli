@@ -16,7 +16,7 @@ import java.util.Date;
 public class JwtUtils {
 
     /* token的过期时间,默认一天 */
-    public static final long EXPIRE = 1000 * 60 * 60 * 24;
+    public static final long EXPIRE = 1000 * 60 * 60 * 24 * 7;
     /* 密钥,base编码之后的"gulixueyuanlzz" */
     public static final String APP_SECRET = "Z3VsaXh1ZXl1YW5seno=";
 

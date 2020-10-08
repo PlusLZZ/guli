@@ -6,6 +6,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 import java.util.concurrent.*;
 
@@ -13,6 +14,7 @@ import java.util.concurrent.*;
 @MapperScan(basePackages = {"com.qtechweb.edu.mapper"})
 @EnableAsync
 @Slf4j
+@EnableScheduling
 public class EduConfig {
 
     /* 获取处理器数量来动态设置线程池参数 */

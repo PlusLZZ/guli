@@ -17,6 +17,9 @@ import java.util.UUID;
 @Slf4j
 public class AliYunOssUpload {
 
+    private static String IMG_URL = "https://educate-guli.oss-cn-beijing.aliyuncs.com/%s";
+
+
     /*
      * 上传文件流
      * 1.文件
@@ -32,7 +35,7 @@ public class AliYunOssUpload {
             inputStream = file.getInputStream();
             build.putObject(ConstantOssSet.BUCKET_NAME, objectName, inputStream);
             inputStream.close();
-            url = getUrlForObjectName(build, objectName);
+            url = String.format(IMG_URL, objectName);
         } catch (IOException e) {
         } finally {
             build.shutdown();

@@ -13,4 +13,7 @@ import com.qtechweb.ucenter.entity.UcenterMember;
  */
 public interface UcenterMemberMapper extends BaseMapper<UcenterMember> {
 
+    /* 查询某天的注册人数 */
+    Integer countRegister(String day);
+
 }

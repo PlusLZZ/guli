@@ -9,7 +9,10 @@ import com.qtechweb.edu.service.impl.EduSubjectServiceImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
@@ -25,7 +28,6 @@ import java.util.List;
  */
 @Slf4j
 @Api(value = "课程类别接口")
-@CrossOrigin
 @RestController
 @RequestMapping("/edu/subject")
 public class EduSubjectController {
