@@ -12,3 +12,10 @@ public class GatewayApplication {
         SpringApplication.run(GatewayApplication.class, args);
     }
 }
+/*
+ *  配置中心的Data ID的规则为
+ *  ${prefix}-${spring.profile.active}.${file-extension}
+ *  - prefix 服务名称
+ *  - spring.profile.active 环境
+ *  - file-extension 配置文件格式比如properties或者yml
+ * */

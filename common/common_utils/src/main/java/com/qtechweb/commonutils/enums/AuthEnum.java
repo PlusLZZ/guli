@@ -6,7 +6,10 @@ public enum AuthEnum implements IDefaultEnum {
     NOT_LOGGED(21001, "用户未登录"),
     USER_DISABLED(21002, "用户已被停用"),
     NOT_FOUND(21003, "未找到此用户"),
-    NOT_AUTH(21001, "鉴权失败");
+    NOT_AUTH(21004, "鉴权失败"),
+    LOGOUT_SUCCESS(21005, "登出成功"),
+    LOGIN_FAIL(21006, "登录失败"),
+    LOGIN_SUCCESS(21007, "登录成功");
 
 
     private Integer code;

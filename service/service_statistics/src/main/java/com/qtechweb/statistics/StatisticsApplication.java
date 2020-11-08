@@ -12,6 +12,7 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan(basePackages = {"com.qtechweb"})//设置扫描到引入的swagger2配置   http://localhost:8008/doc.html
 public class StatisticsApplication {
 
+
     public static void main(String[] args) {
         SpringApplication.run(StatisticsApplication.class, args);
     }

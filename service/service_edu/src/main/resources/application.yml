@@ -24,7 +24,11 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 127.0.0.1:8848
+        server-addr: nacos-guli:8848
+        metadata:
+          version: v1.0
+        group: guli
+        namespace: 79e2e054-f191-4dfa-945c-ef55c6084bf1
   redis:
     host: 39.107.244.230
     port: 6379

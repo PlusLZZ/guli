@@ -1,6 +1,8 @@
 package com.qtechweb.servicebase.config;
 
 
+import com.github.xiaoymin.swaggerbootstrapui.annotations.EnableSwaggerBootstrapUI;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,7 +18,9 @@ import java.util.ArrayList;
 
 @Configuration
 @EnableSwagger2
+@EnableSwaggerBootstrapUI
 //@PropertySource("classpath:application.yml")
+@Slf4j
 public class SwaggerConfig {
 
     //从配置文件获取配置信息
@@ -53,5 +57,6 @@ public class SwaggerConfig {
                 .apis(RequestHandlerSelectors.basePackage(backage))
                 .build();
     }
+
 
 }

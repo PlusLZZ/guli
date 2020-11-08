@@ -41,7 +41,7 @@ public class CodeGenerator {
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
         //String projectPath = System.getProperty("user.dir");
-        gc.setOutputDir("D:\\IdeaProject\\谷粒学院学习项目\\guli_parent\\service\\service_edu" + "/src/main/java");
+        gc.setOutputDir("D:\\IdeaProject\\谷粒学院学习项目\\guli_parent\\service\\service_acl" + "/src/main/java");
         gc.setAuthor("lzz");//作者注释
         gc.setOpen(false);
         gc.setServiceName("%sService");//去掉首字母I
@@ -62,7 +62,7 @@ public class CodeGenerator {
 
         // 包配置
         PackageConfig pc = new PackageConfig();
-        pc.setModuleName(scanner("edu"));
+        pc.setModuleName(scanner("acl"));
         pc.setParent("com.qtechweb");
         pc.setController("controller");
         pc.setEntity("entity");
@@ -89,7 +89,7 @@ public class CodeGenerator {
             @Override
             public String outputFile(TableInfo tableInfo) {
                 // 自定义输出文件名 ， 如果你 Entity 设置了前后缀、此处注意 xml 的名称会跟着发生变化！！
-                return "D:\\IdeaProject\\谷粒学院学习项目\\guli_parent\\service\\service_edu" + "/src/main/resources/mapper/" + pc.getModuleName()
+                return "D:\\IdeaProject\\谷粒学院学习项目\\guli_parent\\service\\service_acl" + "/src/main/resources/mapper/" + pc.getModuleName()
                         + "/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
             }
         });
@@ -134,7 +134,7 @@ public class CodeGenerator {
         //strategy.setSuperControllerClass("你自己的父类控制器,没有就不用设置!");
         // 写于父类中的公共字段
         //strategy.setSuperEntityColumns("id");
-        strategy.setInclude(scanner("edu_comment").split(","));
+        strategy.setInclude(scanner("acl_permission,acl_role,acl_role_permission,acl_user,acl_user_role").split(","));
         strategy.setControllerMappingHyphenStyle(true);
         strategy.setTablePrefix(pc.getModuleName() + "_");
         mpg.setStrategy(strategy);
