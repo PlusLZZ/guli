@@ -8,8 +8,8 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://rm-bp1pb1k4296013ii6qo.mysql.rds.aliyuncs.com:3306/guli?autoReconnect=true&autoReconnectForPools=true&serverTimezone=UTC&failOverReadOnly=false&useUnicode=true&characterEncoding=utf8
-    username: guli
-    password: Guli1234
+    username: 
+    password: 
     hikari:
       max-lifetime: 120000 #连接的存活时间
       connection-test-query: SELECT 1
