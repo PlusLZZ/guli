@@ -2,7 +2,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 39.107.244.230:8848
+        server-addr: .230:8848
         metadata:
           version: v1.0
         group: guli
@@ -11,7 +11,7 @@ spring:
         file-extension: yml
         namespace: 79e2e054-f191-4dfa-945c-ef55c6084bf1
         group: guli
-        server-addr: 39.107.244.230:8848
+        server-addr: 3930:8848
   application:
     name: statistics
   profiles:
