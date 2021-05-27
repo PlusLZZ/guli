@@ -13,7 +13,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 39.107.244.230:8848
+        server-addr: 330:8848
         metadata:
           version: v1.0
         group: guli
@@ -21,7 +21,7 @@ spring:
   mvc:
     throw-exception-if-no-handler-found: true  #捕获404异常
   redis:
-    host: 39.107.244.230
+    host:
     port: 6379
     database: 0
     timeout: 10000
@@ -35,8 +35,8 @@ spring:
 aliyun:
   vod:
     file:
-      keyid: LTAI4FzqurskcBUFRiVfHKfD
-      keysecret: oXj8FXiBpXPHIcbA1IO2e80Fu1EnWZ
+      keyid: 
+      keysecret: 
 swagger:
   groupName: Vod视频点播接口
   backage: com.qtechweb.vod.controller
