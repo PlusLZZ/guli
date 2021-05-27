@@ -15,7 +15,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 39.107.244.230:8848
+        server-addr: 230:8848
         metadata:
           version: v1.0
         group: guli
@@ -23,10 +23,10 @@ spring:
 aliyun:
   oss:
     file:
-      endpoint: oss-cn-beijing.aliyuncs.com
-      keyid: LTAI4FzqurskcBUFRiVfHKfD
-      keysecret: oXj8FXiBpXPHIcbA1IO2e80Fu1EnWZ
-      bucketname: educate-guli
+      endpoint: oncs.com
+      keyid: LTAIHKfD
+      keysecret: oXnWZ
+      bucketname: eli
 swagger:
   groupName: Oss对象存储接口
   backage: com.qtechweb.oss.controller
